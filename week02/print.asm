@@ -32,7 +32,7 @@ global _start
 _start:
 
 print:	; 'print' is a label, you can jump to labels from other parts of the code
-	mov	rax, SYS_exit
+	mov	rax, SYS_write
 	mov	rdi, STDOUT
 	mov	rsi, msg
 	mov	rdx, msglen
@@ -40,6 +40,6 @@ print:	; 'print' is a label, you can jump to labels from other parts of the code
 
 exit:	; exit label
 	mov	rax, SYS_exit
-	mov	rdi, 0
+	mov	rdi, EXIT_SUCCESS
 	syscall
 

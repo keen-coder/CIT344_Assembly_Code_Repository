@@ -1,0 +1,11 @@
+# Ignore everything
+*
+# DON'T ignore anything with a file extension
+!*.*
+
+# DON'T ignore any directory
+!*/
+
+# DO ignore .lst and .o files
+*.lst
+*.o

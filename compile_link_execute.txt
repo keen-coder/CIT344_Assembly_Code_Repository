@@ -1,0 +1,6 @@
+Compile your code into an object (.o) file:
+    yasm -felf64 -gdwarf2 <file_name>.asm -l <file_name>.lst
+Link your object code and create an executable file:
+    ld -g -o <file_name> <file_name>.o
+Run your executable file:
+    ./<file_name>

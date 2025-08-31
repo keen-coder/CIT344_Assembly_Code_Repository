@@ -5,7 +5,7 @@ section .data ;=================================================================
 ; Variables/Constants with known values go here.
 ; This data will be stored within the program and on the hard drive.
 
-; Constats used throughout the program
+; Constants used throughout the program
 LF			 	EQU 0x0A 	; 10 in decimal
 NULL		 	EQU 0x00 	; 0 in decimal
 

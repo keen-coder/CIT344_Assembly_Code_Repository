@@ -62,9 +62,11 @@ _start:
    ; Decrement rax by 1 so the number of chars read does not include the enter key press
    dec   rax
 
-   mov   qword [charsRead], rax    ; at this point rax holds the number of chars entered
-                                 ; including the enter key press.  we can save that value
-                                 ; for later.
+	
+   ; At this point rax holds the number of chars entered excluding the enter key press.
+   ; Save this value into memory (variable) since we will need the RAX register
+   ; in the next few lines of code.
+   mov   qword [charsRead], rax 
 
 ; print the string character by character
 printCharLoop:
@@ -73,9 +75,7 @@ printCharLoop:
    mov  rax, SYS_write
    mov  rdi, STDOUT
    mov  rsi, strInput
-
-   add  rsi, qWord [addrCounter] ; add the counter to the address to get to the next
-                                 ; character
+   add  rsi, qWord [addrCounter] ; add the counter to the address to get the next character.
    mov  rdx, 1       ; only print one character at a time
    syscall
 

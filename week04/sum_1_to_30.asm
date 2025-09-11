@@ -18,8 +18,8 @@ EXIT_SUCCESS   equ 	0    ; successful program execution
 SYS_exit       equ  60   ; call code for termination
 
 ; Variables defined for examples
-loopCounter    dq	15 
-sum            dq   0
+loopCounter    dq	   15 
+sum            dq    0
 ;================================================================================
 
 ; section .bss omitted
@@ -50,15 +50,11 @@ sumLoop:
    mov qword [sum], 0           ; reset the sum variable to 0
    mov rcx, qword [loopCounter] ; loop counter
    mov rax, 1                   ; odd integer counter
+
 sumLoop2:
    add qword [sum], rax         ; sum current odd integer
    add rax, 2                   ; set next odd integer
    loop sumLoop2
-
-
-
-
-
 
 exit:
    mov   rax, SYS_exit

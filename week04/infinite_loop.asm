@@ -28,8 +28,6 @@ helloLen dq    $-hello      ; easy way to get length of string.
                             ; subtract the address of the string from the current
                             ; you will get its length.
 
-
-
 ;================================================================================
 
 ; section .bss omitted

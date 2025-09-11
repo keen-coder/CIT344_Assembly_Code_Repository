@@ -27,6 +27,7 @@ strEqualLen    dq    $-strEqual
 strNotEqual    db    "The values are NOT equal.", NULL, LF
 strNotEqualLen dq    $-strNotEqual
 
+; Two byte-size variables (memory locations)
 bNum1    db    7
 bNum2    db    42
 
@@ -40,11 +41,11 @@ global _start
 
 _start:
  
-example1:   
-   mov   al, byte [bNum1]
-   cmp   al, 7
-   je    equal1
-   jne   notEqual1
+example1: ;====================================================================  
+   mov   al, byte [bNum1]  ; move value of bNum1 to al register
+   cmp   al, 7             ; compare value of al to imm 7
+   je    equal1            ; jump if equal to equal1
+   jne   notEqual1         ; jump if not equal to notEqual1
 
 equal1:
    mov      rax, SYS_write
@@ -62,9 +63,12 @@ notEqual1:
    mov      rdx, qword [strNotEqualLen]
    syscall
    
-   jmp example2
+   jmp example2   ; not necessarily required, the code will follow to example2
+                  ; from here anyway
 
-example2:   
+;==============================================================================
+
+example2: ;====================================================================   
    mov   al, byte [bNum2]
    cmp   al, 7
    je    equal2
